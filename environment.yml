@@ -1,0 +1,22 @@
+name: sleep-states
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - tensorflow
+  - keras
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - h5py
+  - pillow
+  - seaborn
+  - pyarrow
+  - fastparquet
+  - scipy
+  - tqdm
+  - pip
+  - pip:
+      - watermark
