@@ -1,1 +1,1 @@
-# sleep-states
+# Child Mind Institute - Detect Sleep States - Kaggle Competition
