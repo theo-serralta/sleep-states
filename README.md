@@ -1,3 +1,3 @@
 # Child Mind Institute - Detect Sleep States - Kaggle Competition
 
-Sleep is crucial in regulating mood, emotions, and behavior in individuals of all ages, particularly children. By accurately detecting periods of sleep and wakefulness from wrist-worn accelerometer data, researchers can better understand sleep patterns and disturbances in children. The successful predictions would have significant implications for children and youth, especially those with mood and behavior difficulties.
+Sleep is vital in regulating mood, emotions, and behavior across all age groups, especially in children. Accurately detecting sleep and wakefulness using wrist-worn accelerometer data enables researchers to better understand sleep patterns and disturbances in children. These predictions could have significant implications, particularly for children and youth experiencing mood and behavioral difficulties.
