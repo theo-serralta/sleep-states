@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python
+  - ipykernel
   - keras
   - numpy
   - pandas
