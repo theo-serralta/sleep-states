@@ -26,4 +26,11 @@ This project uses **Git Large File Storage (Git LFS)** to manage large files, su
    git lfs pull
    ```
 
+4. **Unzip the archive**:
+    After cloning the repository, you will find a ZIP file containing the dataset in the `data` folder. To extract the data, run the following command:
+    ```bash
+    unzip data/child-mind-institute-detect-sleep-states.zip -d data/
+    ```
+    This will extract the contents of the ZIP file into the `data/` directory, making the dataset available for analysis.
+
 After completing these steps, you should have access to both the code and the dataset files needed for the project.
