@@ -6,10 +6,12 @@ dependencies:
   - python
   - ipykernel
   - keras
-  - tensorflow
   - numpy
   - pandas
   - matplotlib
+  - dask
+  - polars
+  - tensorflow
   - scikit-learn
   - h5py
   - pillow
