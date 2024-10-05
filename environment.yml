@@ -9,6 +9,8 @@ dependencies:
   - numpy
   - pandas
   - matplotlib
+  - dask
+  - polars
   - scikit-learn
   - h5py
   - pillow
