@@ -6,6 +6,7 @@ dependencies:
   - python
   - ipykernel
   - keras
+  - tensorflow
   - numpy
   - pandas
   - matplotlib
@@ -19,6 +20,3 @@ dependencies:
   - tqdm
   - dask
   - pip
-  - pip:
-      - tensorflow
-      - watermark
