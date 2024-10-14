@@ -193,6 +193,9 @@ def process_and_filter_series(parquet_file_path, events_file_path,
                                          events_for_series[['timestamp', 'event']], 
                                          on='timestamp', 
                                          how='left')
+            
+            # Change events to numbers (0: no event, 1: onset, 2:wakeup)
+            final_series_data['event'] = final_series_data['event'].replace({'onset': 1, 'wakeup': 2}).fillna(0)
 
             # Add the final series data to the result DataFrame
             final_df = pd.concat([final_df, final_series_data], ignore_index=True)
