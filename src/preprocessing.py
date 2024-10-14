@@ -2,6 +2,7 @@
 
 import pandas as pd
 import pyarrow.parquet as pq
+import dask.dataframe as dd
 import numpy as np
 import tqdm
 
@@ -61,6 +62,18 @@ def delete_NA_from_train_series(train_data, train_events):
     return train_data.drop(set(indexes_NA_train_series))
 
 
+def write_max_steps(train_series, output_steps_path):
+    """Compute the maximum step for each series_id and write the result to a CSV file.
+
+    Args:
+        train_series (dask.DataFrame): training data
+        output_steps_path (str): Path to the CSV file where the maximum steps will be saved
+    """
+    max_steps = train_series.groupby('series_id')['step'].max().reset_index()
+    max_steps_computed = max_steps.compute()
+    max_steps_computed.to_csv(output_steps_path, index=False)
+
+
 def filter_last_percents(train_series, max_steps):
     """Filter the last 5% of data for each participant.
 
@@ -115,8 +128,8 @@ def drop_nulls(df):
 
 
 def process_and_filter_series(parquet_file_path, events_file_path, 
-                              output_file_path, train_events, max_steps,
-                              drop_percentage=0.99
+                              output_file_path, output_steps_path, 
+                              train_events, drop_percentage=0.99
                               ):
     """Process and filter the training data, then save in csv file.
 
@@ -124,6 +137,7 @@ def process_and_filter_series(parquet_file_path, events_file_path,
         parquet_file_path (str): File path to the training data
         events_file_path (str): File path to the events data
         output_file_path (str): File path to the processed training data
+        output_steps_path (str): File path to the max steps file
         train_events (Pandas.DataFrame): events data
         max_steps (Pandas.DataFrame): maximum step for each series id
         drop_percentage (float, optional): Percent of data without event to drop.
@@ -137,10 +151,15 @@ def process_and_filter_series(parquet_file_path, events_file_path,
     # Process the parquet file in chunks
     parquet_file = pq.ParquetFile(parquet_file_path)
     
-    for i, batch in tqdm.tqdm(enumerate(parquet_file.iter_batches(batch_size=500_000))):
+    # Create the csv file with the max step for each series_id
+    write_max_steps(dd.read_parquet(parquet_file_path), output_steps_path)
+    max_steps = pd.read_csv(output_steps_path)
+    
+    for i, batch in tqdm.tqdm(enumerate(parquet_file.iter_batches(batch_size=500_000))):        
         # Convert the batch to a pandas DataFrame
         df_batch = batch.to_pandas()
         
+        # Filter out NAs and last 5%
         df_batch = filter_last_percents(df_batch, max_steps)
         df_batch = drop_nulls(df_batch)
         df_batch = delete_NA_from_train_series(df_batch, train_events)
@@ -186,9 +205,8 @@ def process_and_filter_series(parquet_file_path, events_file_path,
 
 if __name__ == "__main__":
     train_events = pd.read_csv('data/train_events.csv')
-    max_steps = pd.read_csv("data/max_steps.csv")
     process_and_filter_series('data/train_series.parquet', 
                             'data/train_events.csv', 
                             'data/filtered_train_series.csv',
-                            train_events, max_steps)
+                            'data/max_steps.csv', train_events)
 
