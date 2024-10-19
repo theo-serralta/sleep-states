@@ -20,5 +20,4 @@ dependencies:
   - fastparquet
   - scipy
   - tqdm
-  - dask
   - pip
