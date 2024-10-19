@@ -38,10 +38,6 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: The DataFrame with added features.
     """
     
-    # Map event names to numerical values
-    event_names = {np.nan: 0, "onset": 1, "wakeup": 2}
-    df["event"] = df["event"].map(event_names)
-    
     # Convert timestamp to datetime and extract time-based features
     df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
     df['hour_of_day'] = df['timestamp'].dt.hour
