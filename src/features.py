@@ -8,7 +8,7 @@ This script processes a dataset containing 'timestamp', 'anglez', 'enmo', and
 and value counts. 
 
 Usage:
-    python script.py --input path_to_input.csv --output path_to_output.csv
+    python features.py --input path_to_input.csv --output path_to_output.csv
 
 Arguments:
     --input, -i   Path to the input CSV file.
@@ -37,7 +37,7 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: The DataFrame with added features.
     """
-    
+
     # Convert timestamp to datetime and extract time-based features
     df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
     df['hour_of_day'] = df['timestamp'].dt.hour
@@ -159,3 +159,4 @@ if __name__ == "__main__":
     # Save the featured dataset
     df.to_csv(args.output, index=False)
     print(f"Features added and saved to {args.output}")
+    
