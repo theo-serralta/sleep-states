@@ -19,10 +19,10 @@ __date__ = "2024-10-22"
 __version__ = "1.0.0"
 
 
-import pandas as pd
-import pyarrow.parquet as pq
 import dask.dataframe as dd
 import numpy as np
+import pandas as pd
+import pyarrow.parquet as pq
 import tqdm
 
 
