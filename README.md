@@ -17,7 +17,7 @@ To prepare the data, we need to incorporate the following steps:
 To preprocess the data, use the following code:
 
 ```python
-python src/preprocessing.py
+python src/process_train_data.py
 ```
 
 This script produces the file `data/filtered_train_series.csv` containing the preprocessed train data with only 1% of the data.
@@ -36,6 +36,6 @@ This script produces the files `data/filtered_train_series.csv` and `data/filter
 To add features, use the following code:
 
 ```python 
-python src/features.py --input data/filtered_train_series.csv --output data/featured_train_series.csv
-python src/features.py --input data/filtered_test_series.csv --output data/featured_test_series.csv
+python src/add_features.py --input data/filtered_train_series.csv --output data/featured_train_series.csv
+python src/add_features.py --input data/filtered_test_series.csv --output data/featured_test_series.csv
 ```
