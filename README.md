@@ -20,12 +20,20 @@ To preprocess the data, use the following code:
 python src/preprocessing.py
 ```
 
+This script produces the file `data/filtered_train_series.csv` containing the preprocessed train data with only 1% of the data.
+
+```python
+
 To split the data into train and test sets, use the following code:
 
 ```python
-python src/split_data.py input_file.csv output_train_file.csv output_test_file.csv  \
+python src/split_data.py data/filtered_train_series.csv              \
+                         data/filtered_train_series.csv              \
+                         data/filtered_test_series.csv               \
                          [--test_size 0.3] [--random_state 1]
 ```
+
+This script produces the files `data/filtered_train_series.csv` and `data/filtered_test_series.csv` containing the train and test data, respectively.
 
 To add features, use the following code:
 
