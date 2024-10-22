@@ -22,8 +22,6 @@ python src/preprocessing.py
 
 This script produces the file `data/filtered_train_series.csv` containing the preprocessed train data with only 1% of the data.
 
-```python
-
 To split the data into train and test sets, use the following code:
 
 ```python
