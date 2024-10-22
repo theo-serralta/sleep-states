@@ -167,3 +167,7 @@ test_series.parquet
 train_events.csv
 train_series.parquet
 child-mind-institute-detect-sleep-states.zip
+
+# Personal notebooks
+descriptive_statistics_eliott.ipynb
+feature_engineering_eliott.ipynb
