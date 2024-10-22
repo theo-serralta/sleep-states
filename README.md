@@ -23,7 +23,8 @@ python src/preprocessing.py
 To split the data into train and test sets, use the following code:
 
 ```python
-python src/split_data.py
+python src/split_data.py input_file.csv output_train_file.csv output_test_file.csv  \
+                         [--test_size 0.3] [--random_state 1]
 ```
 
 To add features, use the following code:
