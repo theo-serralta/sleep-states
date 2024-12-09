@@ -1,12 +1,19 @@
 # Child Mind Institute - Detect Sleep States - Kaggle Competition
 
+![cmi](assets/cmi.png)
+
+## 🔍 Overview
 Sleep is vital in regulating mood, emotions, and behavior across all age groups, especially in children. Accurately detecting sleep and wakefulness using wrist-worn accelerometer data enables researchers to better understand sleep patterns and disturbances in children. These predictions could have significant implications, particularly for children and youth experiencing mood and behavioral difficulties.
 
-## Download the data
+## 🎯 Our solution
+
+## 🖥️ Run the code
+
+### Download the data
 
 The data is available on the [Kaggle competition page](https://www.kaggle.com/competitions/child-mind-institute-detect-sleep-states/data).
 
-## Prepare the train and test data
+### Prepare the train and test data
 
 To prepare the data, we need to incorporate the following steps:
 1. Load the data
