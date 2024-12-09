@@ -1,6 +1,8 @@
 # 🛏️ Predicting Sleep States for Kaggle Competition
 
-![cmi](assets/cmi.png)
+<p align="center">
+  <img src="assets/cmi.png" width="45%" />
+</p>
 
 ## 🔍 Overview
 Sleep is a key factor in overall health, particularly for children, where issues like sleep duration, quality, and variability are often linked to broader health concerns. Traditional methods for studying sleep, such as journals, can introduce biases and fail to capture nuances like the difference between going to bed and falling asleep or waking up and getting up. While polysomnography provides detailed insights, it is expensive and impractical for large-scale or routine use.
