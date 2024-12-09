@@ -1,9 +1,13 @@
-# Child Mind Institute - Detect Sleep States - Kaggle Competition
+# 🛏️ Predicting Sleep States for Kaggle Competition
 
 ![cmi](assets/cmi.png)
 
 ## 🔍 Overview
-Sleep is vital in regulating mood, emotions, and behavior across all age groups, especially in children. Accurately detecting sleep and wakefulness using wrist-worn accelerometer data enables researchers to better understand sleep patterns and disturbances in children. These predictions could have significant implications, particularly for children and youth experiencing mood and behavioral difficulties.
+Sleep is a key factor in overall health, particularly for children, where issues like sleep duration, quality, and variability are often linked to broader health concerns. Traditional methods for studying sleep, such as journals, can introduce biases and fail to capture nuances like the difference between going to bed and falling asleep or waking up and getting up. While polysomnography provides detailed insights, it is expensive and impractical for large-scale or routine use.
+
+Wrist-worn accelerometers offer a promising alternative for sleep research. These lightweight, non-invasive devices enable easy and extensive data collection without disrupting natural sleep patterns. To explore their potential, the [Child Mind Institute](https://childmind.org/), a non-profit specializing in children's mental and learning disorders, launched a competition to develop models predicting sleep and wake events based on accelerometer data.
+
+This project focuses on building a highly accurate and efficient predictive model for determining sleep and wake moments in children. By evaluating and optimizing a range of predictive model architectures, we aim to identify the most effective approach to advance sleep research and improve health outcomes.
 
 ## 🎯 Our solution
 
