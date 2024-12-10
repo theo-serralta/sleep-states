@@ -13,6 +13,12 @@ This project focuses on building an efficient predictive model for determining s
 
 ## 🎯 Our solution
 
+The target variable is categorical, consisting of three highly imbalanced classes: `onset`, `wakeup`, and `no event`, representing either the type of event or its absence. To address this imbalance, we employed several techniques, including stratified sampling for training and validation, weight adjustment, SMOTE oversampling, and decision threshold tuning.
+
+Data preprocessing involved removing accelerometer readings corresponding to times when the watch was removed (see Fig. 1), as well as excluding individuals with too many missing values. Additionally, we filtered out the last 5% of the data for each series and extracted 1% of the remaining dataset by selecting one out of every 100 rows, maintaining temporal continuity. Feature engineering was then carried out as outlined below. All numeric features were scaled, and the target variable was encoded as integers from 0 to 2 (0: `no event`, 1: `onset`, 2: `wakeup`).
+
+Five models were trained and evaluated using 3-fold cross-validation, with results presented in the results section. Each model was composed of two steps: the first performs binary classification (`event`/`no event`), and the second classifies the events predicted by the first model (`onset`/`wakeup`). This architecture also helps mitigate the effects of data imbalance.
+
 ### Feature Engineering 
 
 | Feature                              | Description                                                                 |
@@ -59,6 +65,8 @@ This project focuses on building an efficient predictive model for determining s
 | `series_enmo_fft_std`              | Standard deviation of the FFT magnitudes for `enmo` values for each `series_id`. |
 | `series_enmo_fft_max`              | Maximum of the FFT magnitudes for `enmo` values for each `series_id`.        |
 | `series_enmo_fft_min`              | Minimum of the FFT magnitudes for `enmo` values for each `series_id`.        |
+
+## 📊 Results
 
 
 ## 🖥️ Run the code
