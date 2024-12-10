@@ -13,6 +13,54 @@ This project focuses on building an efficient predictive model for determining s
 
 ## 🎯 Our solution
 
+### Feature Engineering 
+
+| Feature                              | Description                                                                 |
+|--------------------------------------|-----------------------------------------------------------------------------|
+| `time_of_day_sin`                  | Sinusoidal transformation of the hour of the day to capture time-of-day cyclic behavior. |
+| `time_of_day_cos`                  | Cosine transformation of the hour of the day, used alongside `time_of_day_sin` to capture cyclic time-of-day patterns. |
+| `series_anglez_mean`               | Mean of `anglez` values for each `series_id`.                                |
+| `series_anglez_median`             | Median of `anglez` values for each `series_id`.                              |
+| `series_anglez_std`                | Standard deviation of `anglez` values for each `series_id`.                  |
+| `series_anglez_count`              | Count of `anglez` values for each `series_id`.                               |
+| `series_anglez_max`                | Maximum `anglez` value for each `series_id`.                                 |
+| `series_anglez_min`                | Minimum `anglez` value for each `series_id`.                                 |
+| `series_anglez_sum`                | Sum of `anglez` values for each `series_id`.                                 |
+| `series_enmo_mean`                 | Mean of `enmo` values for each `series_id`.                                  |
+| `series_enmo_median`               | Median of `enmo` values for each `series_id`.                                |
+| `series_enmo_std`                  | Standard deviation of `enmo` values for each `series_id`.                    |
+| `series_enmo_count`                | Count of `enmo` values for each `series_id`.                                 |
+| `series_enmo_max`                  | Maximum `enmo` value for each `series_id`.                                   |
+| `series_enmo_min`                  | Minimum `enmo` value for each `series_id`.                                   |
+| `series_enmo_sum`                  | Sum of `enmo` values for each `series_id`.                                   |
+| `cumulative_anglez`                | Cumulative sum of `anglez` values for each `series_id`.                      |
+| `cumulative_enmo`                  | Cumulative sum of `enmo` values for each `series_id`.                        |
+| `cumulative_max_anglez`            | Cumulative maximum of `anglez` values for each `series_id`.                  |
+| `cumulative_max_enmo`              | Cumulative maximum of `enmo` values for each `series_id`.                    |
+| `anglez_rolling_mean`              | Rolling mean (window size 10) of `anglez` values for each `series_id`.       |
+| `anglez_rolling_std`               | Rolling standard deviation (window size 10) of `anglez` values for each `series_id`. |
+| `enmo_rolling_mean`                | Rolling mean (window size 10) of `enmo` values for each `series_id`.         |
+| `*enmo_rolling_std`                 | Rolling standard deviation (window size 10) of `enmo` values for each `series_id`. |
+| `series_anglez_vc_greater_1`       | Count of `anglez` values greater than 1 for each `series_id`.                 |
+| `series_anglez_vc_greater_0`       | Count of `anglez` values greater than 0 for each `series_id`.                 |
+| `series_enmo_vc_greater_1`         | Count of `enmo` values greater than 1 for each `series_id`.                   |
+| `series_enmo_vc_greater_0`         | Count of `enmo` values greater than 0 for each `series_id`.                   |
+| `anglez_enmo_product`              | Interaction feature: product of `anglez` and `enmo`.                         |
+| `anglez_enmo_ratio`                | Interaction feature: ratio of `anglez` to `enmo` (avoiding division by zero). |
+| `anglez_change_point`              | Absolute difference between consecutive `anglez` values for each `series_id`. |
+| `enmo_change_point`                | Absolute difference between consecutive `enmo` values for each `series_id`.  |
+| `series_anglez_unique_count`       | Number of unique `anglez` values for each `series_id`.                       |
+| `series_enmo_unique_count`         | Number of unique `enmo` values for each `series_id`.                         |
+| `series_anglez_fft_mean`           | Mean of the FFT magnitudes for `anglez` values for each `series_id`.         |
+| `series_anglez_fft_std`            | Standard deviation of the FFT magnitudes for `anglez` values for each `series_id`. |
+| `series_anglez_fft_max`            | Maximum of the FFT magnitudes for `anglez` values for each `series_id`.      |
+| `series_anglez_fft_min`            | Minimum of the FFT magnitudes for `anglez` values for each `series_id`.      |
+| `series_enmo_fft_mean`             | Mean of the FFT magnitudes for `enmo` values for each `series_id`.           |
+| `series_enmo_fft_std`              | Standard deviation of the FFT magnitudes for `enmo` values for each `series_id`. |
+| `series_enmo_fft_max`              | Maximum of the FFT magnitudes for `enmo` values for each `series_id`.        |
+| `series_enmo_fft_min`              | Minimum of the FFT magnitudes for `enmo` values for each `series_id`.        |
+
+
 ## 🖥️ Run the code
 
 ### Download the data
