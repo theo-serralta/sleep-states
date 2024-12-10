@@ -19,7 +19,7 @@ The target variable is categorical, consisting of three highly imbalanced classe
 - SMOTE oversampling
 - decision threshold tuning
 
-Data preprocessing involved removing accelerometer readings corresponding to times when the watch was removed (see Fig. 1), as well as excluding individuals with too many missing values. Additionally, we filtered out the last 5% of the data for each series and extracted 1% of the remaining dataset by selecting one out of every 100 rows, maintaining temporal continuity. Feature engineering was then carried out as outlined below. All numeric features were scaled, and the target variable was encoded as integers from 0 to 2 (0: `no event`, 1: `onset`, 2: `wakeup`).
+Data preprocessing involved removing accelerometer readings corresponding to times when the watch was removed, as well as excluding individuals with too many missing values. Additionally, we filtered out the last 5% of the data for each series and extracted 1% of the remaining dataset by selecting one out of every 100 rows, maintaining temporal continuity. Feature engineering was then carried out as outlined below. All numeric features were scaled, and the target variable was encoded as integers from 0 to 2 (0: `no event`, 1: `onset`, 2: `wakeup`).
 
 Five models were trained and evaluated using 3-fold cross-validation, with results presented in the results section. Each model was composed of two steps: the first performs binary classification (`event`/`no event`), and the second classifies the events predicted by the first model (`onset`/`wakeup`). This architecture also helps mitigate the effects of data imbalance.
 
