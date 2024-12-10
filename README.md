@@ -9,7 +9,7 @@ Sleep is a key factor in overall health, particularly for children, where issues
 
 Wrist-worn accelerometers offer a promising alternative for sleep research. These lightweight, non-invasive devices enable easy and extensive data collection without disrupting natural sleep patterns. To explore their potential, the [Child Mind Institute](https://childmind.org/), a non-profit specializing in children's mental and learning disorders, launched a competition to develop models predicting sleep and wake events based on accelerometer data.
 
-This project focuses on building a highly accurate and efficient predictive model for determining sleep and wake moments in children. By evaluating and optimizing a range of predictive model architectures, we aim to identify the most effective approach to advance sleep research and improve health outcomes.
+This project focuses on building an efficient predictive model for determining sleep and wake moments in children. By evaluating and optimizing a range of predictive model architectures, we aim to identify the most effective approach to advance sleep research and improve health outcomes.
 
 ## 🎯 Our solution
 
