@@ -28,7 +28,7 @@ import argparse
 
 def add_features(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Add time-based, statistical, and interaction features to the input dataset.
+    Add time-based, statistical, FFT, and interaction features to the dataset.
 
     Args:
         df (pd.DataFrame): Input DataFrame with 'timestamp', 'anglez', 'enmo',
@@ -37,7 +37,6 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: The DataFrame with added features.
     """
-
     # Convert timestamp to datetime and extract time-based features
     df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
     df['hour_of_day'] = df['timestamp'].dt.hour
@@ -64,6 +63,30 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     # Merge the aggregated stats back into the original DataFrame
     df = df.merge(anglez_stats, on='series_id', how='left')
     df = df.merge(enmo_stats, on='series_id', how='left')
+
+    # FFT features
+    def compute_fft_features(series):
+        fft_values = np.fft.rfft(series)
+        fft_magnitudes = np.abs(fft_values)
+        return {
+            'fft_mean': np.mean(fft_magnitudes),
+            'fft_std': np.std(fft_magnitudes),
+            'fft_max': np.max(fft_magnitudes),
+            'fft_min': np.min(fft_magnitudes)
+        }
+    
+    fft_features = []
+    for series_id, group in df.groupby('series_id'):
+        anglez_fft = compute_fft_features(group['anglez'])
+        enmo_fft = compute_fft_features(group['enmo'])
+        fft_features.append({
+            'series_id': series_id,
+            **{f'series_anglez_{key}': value for key, value in anglez_fft.items()},
+            **{f'series_enmo_{key}': value for key, value in enmo_fft.items()}
+        })
+    
+    fft_df = pd.DataFrame(fft_features)
+    df = df.merge(fft_df, on='series_id', how='left')
 
     # Cumulative and rolling window features
     df['cumulative_anglez'] = group_anglez.cumsum()
