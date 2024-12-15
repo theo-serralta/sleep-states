@@ -72,7 +72,7 @@ Five models were trained and evaluated using 3-fold cross-validation, with resul
 
 ## 📊 Results
 
-| Model        | Accuracy       | F1 Score       | Precision      | Recall         | AUC-ROC        |
+| Model        | Accuracy (onset / wakeup)      | F1 Score (onset / wakeup)     | Precision (onset / wakeup)      | Recall (onset / wakeup)       | AUC-ROC (onset / wakeup)        |
 |--------------|----------------|----------------|----------------|----------------|----------------|
 | **Random Forest** |  |  |  |  |  |
 | **DNN**  |  |  |  |  |  |
